@@ -134,8 +134,6 @@ RUN apk add --no-cache --virtual .build-deps \
          mkdir /root/.cache ; \
          USER=root luarocks install $i ; \
      done \
-    && USER=root luarocks install lua-cjson \
-    && USER=root luarocks install lua-resty-http \
     && cd /tmp \
     && if [ -n "${RESTY_EVAL_POST_MAKE}" ]; then eval $(echo ${RESTY_EVAL_POST_MAKE}); fi \
     && rm -rf \
