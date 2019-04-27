@@ -1,7 +1,13 @@
 # Dockerfile - alpine
 # https://github.com/openresty/docker-openresty
 
-FROM alpine:latest
+# Run this before try to build: docker run --rm --privileged multiarch/qemu-user-static:register
+
+ARG RESTY_IMAGE_BASE="multiarch/alpine"
+ARG RESTY_IMAGE_TAG="arm64-latest-stable"
+ARG ARCH=aarch64
+
+FROM ${RESTY_IMAGE_BASE}:${RESTY_IMAGE_TAG}
 
 LABEL maintainer="Leandro Carneiro <leandro@carnei.ro>"
 
